@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Cumpleaños, Kammy! 💖🎉</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #9B1B30; /* Carmesí */
@@ -13,12 +14,13 @@
             justify-content: center;
             height: 100vh;
             text-align: center;
-            font-family: 'Courier New', cursive;
+            font-family: 'Great Vibes', cursive; /* Fuente romántica */
             color: white;
         }
         h1 {
             font-size: 4em;
             text-shadow: 3px 3px 5px rgba(0,0,0,0.7);
+            font-family: 'Sacramento', cursive; /* Fuente elegante */
         }
         p {
             font-size: 1.8em;
@@ -26,6 +28,7 @@
             padding: 15px;
             border-radius: 15px;
             box-shadow: 0 0 15px rgba(255,0,150,0.8);
+            font-family: 'Great Vibes', cursive; /* Fuente romántica */
         }
         .btn {
             background: #ff66b2;
@@ -156,7 +159,7 @@
         </div>
     </div>
 
-    <!-- Botón invisible que activará la música al cargar la página -->
+    <!-- Botón para activar la música -->
     <button id="playButton" onclick="playMusic()">Play Music</button>
 
     <script>
@@ -189,9 +192,9 @@
             alert('Sois la luz de mi vida, Kammy. ¡Feliz cumpleaños, preciosa! 💖🎉🎈🎂');
         }
 
-        // Activar la música automáticamente al cargar la página
+        // Iniciar la música al hacer clic en el botón
         window.onload = function() {
-            document.getElementById('playButton').click();  // Dispara el click del botón invisible para activar la música
+            document.getElementById('playButton').click();  // Dispara el click del botón para activar la música
         };
 
         // Cambiar las fotos automáticamente cada 3 segundos
