@@ -111,6 +111,11 @@
             background-color: #ff1493;
             color: white;
         }
+
+        /* Botón invisible para activar música */
+        #playButton {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -151,6 +156,9 @@
         </div>
     </div>
 
+    <!-- Botón invisible que activará la música al cargar la página -->
+    <button id="playButton" onclick="playMusic()">Play Music</button>
+
     <script>
         let currentIndex = 0;
 
@@ -170,7 +178,7 @@
             document.querySelector('.slides').style.transform = `translateX(${newTransformValue}%)`;
         }
 
-        // Reproducir música al cargar la página
+        // Función para reproducir música
         function playMusic() {
             const audio = document.getElementById('audio');
             audio.play();
@@ -181,9 +189,9 @@
             alert('Sois la luz de mi vida, Kammy. ¡Feliz cumpleaños, preciosa! 💖🎉🎈🎂');
         }
 
-        // Iniciar la reproducción de la música automáticamente
+        // Activar la música automáticamente al cargar la página
         window.onload = function() {
-            playMusic();
+            document.getElementById('playButton').click();  // Dispara el click del botón invisible para activar la música
         };
 
         // Cambiar las fotos automáticamente cada 3 segundos
@@ -191,6 +199,7 @@
     </script>
 </body>
 </html>
+
 
 
 
