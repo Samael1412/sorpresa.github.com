@@ -53,6 +53,17 @@
             50% { transform: scale(1.2); }
             100% { transform: scale(1); }
         }
+        .fotos {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .fotos img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255,0,150,0.8);
+        }
     </style>
 </head>
 <body>
@@ -68,6 +79,14 @@
         Tu navegador no soporta el elemento de audio.
     </audio>
 
+    <!-- Galería de imágenes -->
+    <div class="fotos">
+        <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/branch_name/11.jpeg" alt="Foto 1">
+        <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/branch_name/20.jpeg" alt="Foto 2">
+        <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/branch_name/34.jpeg" alt="Foto 3">
+        <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/branch_name/63.jpeg" alt="Foto 4">
+    </div>
+
     <script>
         function mostrarMensaje() {
             alert('Sois la luz de mi vida, mi amor. ¡Feliz cumpleaños, preciosa! 💖🎉🎈🎂');
@@ -75,4 +94,5 @@
     </script>
 </body>
 </html>
+
 
