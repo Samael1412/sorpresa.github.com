@@ -56,55 +56,52 @@
         .slider {
             position: relative;
             width: 80%;
-            max-width: 800px;
+            max-width: 900px;
             margin-top: 40px;
-            border-radius: 15px;
-            overflow: hidden;
         }
         .slides {
             display: flex;
-            transition: transform 0.5s ease;
+            overflow: hidden;
+            position: relative;
         }
         .slide {
-            min-width: 100%;
-            box-sizing: border-box;
-            position: relative;
+            width: 100%;
+            transition: 0.5s ease;
         }
         .slide img {
             width: 100%;
-            height: auto;
             border-radius: 10px;
         }
         .caption {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
+            font-size: 1.5em;
             background: rgba(0, 0, 0, 0.6);
             color: white;
             padding: 10px;
-            border-radius: 5px;
-            font-size: 1.5em;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
         }
         .controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
             display: flex;
             justify-content: space-between;
+            position: absolute;
+            width: 100%;
+            top: 50%;
             transform: translateY(-50%);
         }
         .control-left, .control-right {
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             color: white;
             font-size: 2em;
-            padding: 10px;
-            cursor: pointer;
             border: none;
+            cursor: pointer;
+            padding: 10px;
             border-radius: 50%;
-            transition: background 0.3s;
         }
         .control-left:hover, .control-right:hover {
-            background: rgba(255,0,150,0.8);
+            background: rgba(255, 0, 150, 0.8);
         }
     </style>
 </head>
@@ -115,29 +112,23 @@
     <button class="btn" onclick="mostrarMensaje()">🎁 Presiona para una sorpresa 💝</button>
     <div class="hearts">💗💓💞💕💖💘💝</div>
 
-    <!-- Reproductor de audio -->
-    <audio autoplay loop>
-        <source src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/18893592389c93567bd41a961e4e8904615a15db/Ed%20Sheeran%20-%20Perfect.mp3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
-
-    <!-- Slider de imágenes -->
+    <!-- Slider de fotos -->
     <div class="slider">
         <div class="slides">
             <div class="slide">
-                <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/branch_name/11.jpeg" alt="Foto 1">
+                <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/fe347d9760ddaf9df9cf9bc8706cf9e5e5eafdff/11.jpeg" alt="Foto 1">
                 <div class="caption">Mensaje para ti #1</div>
             </div>
             <div class="slide">
-                <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/branch_name/20.jpeg" alt="Foto 2">
+                <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/fe347d9760ddaf9df9cf9bc8706cf9e5e5eafdff/20.jpeg" alt="Foto 2">
                 <div class="caption">Mensaje para ti #2</div>
             </div>
             <div class="slide">
-                <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/branch_name/34.jpeg" alt="Foto 3">
+                <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/fe347d9760ddaf9df9cf9bc8706cf9e5e5eafdff/34.jpeg" alt="Foto 3">
                 <div class="caption">Mensaje para ti #3</div>
             </div>
             <div class="slide">
-                <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/branch_name/63.jpeg" alt="Foto 4">
+                <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/fe347d9760ddaf9df9cf9bc8706cf9e5e5eafdff/63.jpeg" alt="Foto 4">
                 <div class="caption">Mensaje para ti #4</div>
             </div>
         </div>
@@ -150,20 +141,23 @@
     <script>
         let currentSlide = 0;
 
-        function moveSlide(step) {
-            const slides = document.querySelector('.slides');
-            const totalSlides = document.querySelectorAll('.slide').length;
-
-            currentSlide = (currentSlide + step + totalSlides) % totalSlides;
-            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        function moveSlide(direction) {
+            const slides = document.querySelectorAll('.slide');
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            const slidesContainer = document.querySelector('.slides');
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
 
         function mostrarMensaje() {
             alert('Sois la luz de mi vida, mi amor. ¡Feliz cumpleaños, preciosa! 💖🎉🎈🎂');
         }
+
+        // Cargar la primera imagen al abrir la página
+        window.onload = () => {
+            moveSlide(0);
+        }
     </script>
 </body>
 </html>
-
 
 
