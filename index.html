@@ -86,18 +86,37 @@
             border-radius: 10px;
             width: 80%;
         }
+
+        .controls {
+            margin-top: 10px;
+        }
+
+        .controls button {
+            background-color: rgba(255,0,150,0.8);
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .controls button:hover {
+            background-color: #ff1493;
+            color: white;
+        }
     </style>
 </head>
 <body>
     <!-- Reproductor de música -->
-    <audio autoplay loop>
-        <source src="https://github.com/Samael1412/sorpresa.github.com/blob/7cebf7f2769946086534578917db1b9c8081bc1b/Ed%20Sheeran%20-%20Perfect.mp3" type="audio/mp3">
-
+    <audio id="audio" loop>
+        <source src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/7cebf7f2769946086534578917db1b9c8081bc1b/Ed%20Sheeran%20-%20Perfect.mp3" type="audio/mp3">
+        Tu navegador no soporta la reproducción de audio.
     </audio>
 
     <h1>🎂💖 ¡Feliz Cumpleaños, Kammy! 💖🎂</h1>
-    <p>En este momento,celebramos cuando nació la persona más hermosa y maravillosa del universo. 
-       Que este año esté lleno de amor, felicidad y muchos abrazos. Me llenáis de orgullo, Kammy. ¡Os amo con todo mi ser! 💕</p>
+    <p>En este momento, celebramos el día en que nació la persona más hermosa y maravillosa del universo. 
+       Que este año esté lleno de amor, felicidad y muchos abrazos. Me llenáis de orgullo, Kammy. Sois la madera de mi universo¡Os amo con todo mi ser ∞ + 1! 💕</p>
     <button class="btn" onclick="mostrarMensaje()">🎁 Presiona para una sorpresa 💝</button>
     <div class="hearts">💗💓💞💕💖💘💝</div>
 
@@ -120,26 +139,51 @@
                 <div class="message">...y que sean muchas más citas alocadas...¡FELIZ CUMPLEÑOS MI VIDA!</div>
             </div>
         </div>
+        <div class="controls">
+            <button onclick="prevSlide()">⏪ Anterior</button>
+            <button onclick="nextSlide()">Siguiente ⏩</button>
+        </div>
     </div>
 
     <script>
         let currentIndex = 0;
 
-        function showNextSlide() {
+        // Función para mostrar la siguiente foto
+        function nextSlide() {
             const slides = document.querySelectorAll('.slide');
             currentIndex = (currentIndex + 1) % slides.length;
             const newTransformValue = -100 * currentIndex;
             document.querySelector('.slides').style.transform = `translateX(${newTransformValue}%)`;
         }
 
-        setInterval(showNextSlide, 3000); // Cambiar cada 3 segundos
+        // Función para mostrar la foto anterior
+        function prevSlide() {
+            const slides = document.querySelectorAll('.slide');
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            const newTransformValue = -100 * currentIndex;
+            document.querySelector('.slides').style.transform = `translateX(${newTransformValue}%)`;
+        }
 
+        // Reproducir música al hacer clic
+        function playMusic() {
+            const audio = document.getElementById('audio');
+            audio.play();
+        }
+
+        // Mostrar mensaje de cumpleaños
         function mostrarMensaje() {
             alert('Sois la luz de mi vida, Kammy. ¡Feliz cumpleaños, preciosa! 💖🎉🎈🎂');
         }
+
+        // Iniciar la reproducción de la música
+        playMusic();
+
+        // Cambiar las fotos automáticamente cada 3 segundos
+        setInterval(nextSlide, 3000);
     </script>
 </body>
 </html>
+
 
 
 
