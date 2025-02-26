@@ -53,16 +53,58 @@
             50% { transform: scale(1.2); }
             100% { transform: scale(1); }
         }
-        .fotos {
-            display: flex;
-            gap: 20px;
+        .slider {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
             margin-top: 40px;
+            border-radius: 15px;
+            overflow: hidden;
         }
-        .fotos img {
-            width: 200px;
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .slide img {
+            width: 100%;
             height: auto;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(255,0,150,0.8);
+        }
+        .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.5em;
+        }
+        .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .control-left, .control-right {
+            background: rgba(0,0,0,0.5);
+            color: white;
+            font-size: 2em;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        .control-left:hover, .control-right:hover {
+            background: rgba(255,0,150,0.8);
         }
     </style>
 </head>
@@ -79,20 +121,49 @@
         Tu navegador no soporta el elemento de audio.
     </audio>
 
-    <!-- Galería de imágenes -->
-    <div class="fotos">
-        <img src="https://github.com/Samael1412/sorpresa.github.com/blob/0354cbc2cd47a1a431865be3d3965feaf53ebde2/11.jpeg" alt="Foto 1">
-        <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/branch_name/20.jpeg" alt="Foto 2">
-        <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/branch_name/34.jpeg" alt="Foto 3">
-        <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/branch_name/63.jpeg" alt="Foto 4">
+    <!-- Slider de imágenes -->
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/branch_name/11.jpeg" alt="Foto 1">
+                <div class="caption">Mensaje para ti #1</div>
+            </div>
+            <div class="slide">
+                <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/branch_name/20.jpeg" alt="Foto 2">
+                <div class="caption">Mensaje para ti #2</div>
+            </div>
+            <div class="slide">
+                <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/branch_name/34.jpeg" alt="Foto 3">
+                <div class="caption">Mensaje para ti #3</div>
+            </div>
+            <div class="slide">
+                <img src="https://raw.githubusercontent.com/Samael1412/sorpresa.github.com/branch_name/63.jpeg" alt="Foto 4">
+                <div class="caption">Mensaje para ti #4</div>
+            </div>
+        </div>
+        <div class="controls">
+            <button class="control-left" onclick="moveSlide(-1)">❮</button>
+            <button class="control-right" onclick="moveSlide(1)">❯</button>
+        </div>
     </div>
 
     <script>
+        let currentSlide = 0;
+
+        function moveSlide(step) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = document.querySelectorAll('.slide').length;
+
+            currentSlide = (currentSlide + step + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
         function mostrarMensaje() {
             alert('Sois la luz de mi vida, mi amor. ¡Feliz cumpleaños, preciosa! 💖🎉🎈🎂');
         }
     </script>
 </body>
 </html>
+
 
 
