@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños, Kammy! 💖🎉</title>
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1600x900/?love,flowers,hearts') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            font-family: 'Courier New', cursive;
+            color: white;
+        }
+        h1 {
+            font-size: 4em;
+            text-shadow: 3px 3px 5px rgba(0,0,0,0.7);
+        }
+        p {
+            font-size: 1.8em;
+            background: rgba(255,0,150,0.6);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255,0,150,0.8);
+        }
+        .btn {
+            background: #ff66b2;
+            padding: 15px 25px;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 15px;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(255,0,150,0.8);
+        }
+        .btn:hover {
+            background: #ff1493;
+            color: white;
+            transform: scale(1.1);
+        }
+        .hearts {
+            font-size: 2em;
+            margin-top: 20px;
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎂💖 ¡Feliz Cumpleaños, Kammy! 💖🎂</h1>
+    <p>Hoy celebramos el día en que nació la persona más hermosa y maravillosa del mundo. 
+       Que este año esté lleno de amor, felicidad y muchos abrazos. ¡Te amo con todo mi corazón! 💕</p>
+    <button class="btn" onclick="mostrarMensaje()">🎁 Presiona para una sorpresa 💝</button>
+    <div class="hearts">💗💓💞💕💖💘💝</div>
+    <script>
+        function mostrarMensaje() {
+            alert('Eres la luz de mi vida, mi amor. ¡Feliz cumpleaños, preciosa! 💖🎉🎈🎂');
+        }
+    </script>
+</body>
+</html>
